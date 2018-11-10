@@ -1,0 +1,25 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "An API and frontend for making blog posts",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "mocha",
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js"
+  },
+  "author": "Nolan Hellyer",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "chai": "^4.2.0",
+    "nodemon": "^1.18.6"
+  }
+}
