@@ -46,7 +46,7 @@ function create(data) {
 
     result.data = data;
   } else {
-    data.error = error;
+    result.error = error;
   }
 
   return result;
@@ -71,6 +71,7 @@ function update(id, data) {
   }
 
   if (error.length < 1) {
+    data.id = id;
     posts[index] = data;
     writePosts(posts);
 
@@ -86,18 +87,18 @@ function remove(id) {
   const posts = readPosts();
   const result = {};
   const error = [];
-  const index = posts.find(entry => entry.id === id);
+  const index = posts.findIndex(entry => entry.id === id);
   let data;
 
   if (index < 0) {
     error.push(`The entry you are trying to remove, ${id}, could not be found`);
-  }
-
-  if (error.length < 1) {
+  } else if (error.length < 1) {
     data = posts.splice(index, 1)[0];
     writePosts(posts);
 
     result.data = data;
+  } else {
+    result.error = error;
   }
 
   return result;
