@@ -2,12 +2,14 @@
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3000;
 
 // My files
 const routes = require("./routes/posts");
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan("dev"));
 
