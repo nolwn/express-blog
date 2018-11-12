@@ -1,1 +1,47 @@
-[{"content":"I am a real blogger. This is exciting.","title":"A Real Blogger","id":"ca0d9be8-e46b-11e8-9e91-7200067293d0"},{"title":"A post to end all posts","content":"Since the dawn of the Internet, bloggers have strived to write the perfect blog post. Now, for the first time, we have that blog post!","id":"153b9dd0-6ac7-4cf7-9d1e-801e2d06f90c"}]
+[
+  {
+    "id": "ca0d9be8-e46b-11e8-9e91-7200067293d0",
+    "title": "Welcome to Gearbox",
+    "content": "Gearbox is a pioneering new company. We do things a little differently here at Gearbox. Look at our slick, monochrome logo; look at our 'free for commercial use' photo of some servers. Ask yourself if it looks a little like a 3D rendering of some servers. We think so too, but we at Gearbox don't know. They aren't our servers. But that doesn't mean we don't have any servers! Enjoy our blog, and give us money!"
+  },
+  {
+    "id": "153b9dd0-6ac7-4cf7-9d1e-801e2d06f90c",
+    "title": "A post to end all posts",
+    "content": "Since the dawn of the Internet, bloggers have strived to write the perfect blog post. Now, for the first time, we have that blog post! We at Gearbox are truly proud to have written this post. Although we have the post, and it is written, we aren't ready to give it to the world just yet. After all, it will put a lot of blogger out of the job! Believe us, though, we really are great bloggers here at Gearbox. And if you want to recieve all our world class posts, keep checking in!"
+  },
+  {
+    "id": "35f29958-e633-11e8-8057-7200067293d0",
+    "title": "What do we do?",
+    "content": "The number one question we recieve is, \"what does Gearbox do?\" Well, that's easy! We work for you. We are on your side. We are in the business of solutions and we won't compromise on quality. Here at Gearbox, we are like family and we would be honored if you would join us. Because we believe in family. Almost as much as we believe in you. We accept PayPal or Credit Card, what will it be?"
+  },
+  {
+    "id": "40fa4a6a-e635-11e8-a25e-7200067293d0",
+    "title": "We are the best, and we can prove it.",
+    "content": "The world was torn aport by our claim that we had finally crafter the perfect blog post. Bloggers of all stripe cried foul. But we really are the best blog in town. And to prove it, we are making this the first open blog. That's right, now even YOU can edit, delete, or write for our blog. Yes, this truly is visionary blogging, and it's not just because the guy we hired doesn't know authentication yet. We gaurentee it."
+  },
+  {
+    "id": "42f27fee-e636-11e8-b3cf-7200067293d0",
+    "title": "Concerning the political climate",
+    "content": "That's right, all those politicians you are mad at are the worst. We support all the political causes you support. You know the ones, we don't even have to say what they are. We believe in the good causes. We stand with the honest ones in Congress, not those awful lying ones. Believe us, we are on your side. Afterall, isn't it the only side that thinking people could ever be on?"
+  },
+  {
+    "id": "d4c917ec-e637-11e8-9927-7200067293d0",
+    "title": "Visionary Leadership",
+    "content": "Once in a generation, a leader is born who will change the world forever. Here at Gearbox, we are fostering a whole generation of transormational leaders. That's right, here at Gearbox we aren't satisfied with just one exceptional leader a generation, we are creating one whole generation of exceptional leaders. Sign up today to work for the comapny that Gearbox Magazine called, \"the greatest company on Earth.\""
+  },
+  {
+    "id": "ea26a1ae-e637-11e8-8b65-7200067293d0",
+    "title": "Programming the children of tomorrow, today",
+    "content": "Can children be programmed? Here at Gearbox, we believe that the answer is yes and we are striving to program our children, ours and yours, to be the efficient and happy. Through our state-of-the-art techniques, we are pioneering the future of kid-puting."
+  },
+  {
+    "id": "fc6286da-e637-11e8-985b-7200067293d0",
+    "title": "We apologize",
+    "content": "Gearbox would like to extend our sincerest apologies for our previous blog post. Gearbox would like to assure you, and all Americans, that we are not, and never were, in the business of programming children. Gearbox knows that children are not experiments for us to perform. We assure you that, when we said \"Programming,\" we meant pedagogy. And what pedagogy did we have in mind? The kind of pedagogy you like, of course. We know that children should be treated the way that makes the most sense. You know how children should be treated, and we completely agree. We agree with you completely. We are all on the same page."
+  },
+  {
+    "id": "115d781a-e638-11e8-a65e-7200067293d0",
+    "title": "Made in the you-know-where",
+    "content": "You have a country you love. We know, because we love that country too. That's why we work exclusively in the greatest country on Earth. That one you love. That we love too. That country sure is number one. You can trust us here at Gearbox."
+  }
+]

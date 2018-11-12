@@ -4,11 +4,21 @@ const uuid = require("uuid/v4");
 // My files
 const { readPosts, writePosts } = require("../db");
 
-function getAll() {
+function getAll(size, start = 0) {
   const result = {}
+  const error = [];
   const data = readPosts();
 
-  result.data = data;
+  if (start >= data.length) {
+    data.error.push(`There are fewer than ${start + 1} posts!`);
+  } else if (size) {
+    result.data = [];
+    for (let i = start; i < size + start; i++) {
+      result.data.push(data[i]);
+    }
+  } else {
+    result.data = data;
+  }
 
   return result;
 }

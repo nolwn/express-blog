@@ -2,7 +2,9 @@
 const model = require("../models/posts");
 
 function getAll(req, res, next) {
-  const data = model.getAll();
+  const from = req.params.size;
+  const to = req.params.start;
+  const data = model.getAll(size, start);
 
   res.status(200).send(data);
 }
