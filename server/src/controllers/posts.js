@@ -2,9 +2,20 @@
 const model = require("../models/posts");
 
 function getAll(req, res, next) {
-  const from = req.params.size;
-  const to = req.params.start;
-  const data = model.getAll(size, start);
+  const size = req.query.size || undefined;
+  const start = req.query.start || 0;
+
+  let data;
+  if (size) {
+    data = model.getAll(size, start);
+  }
+  else {
+    data = model.getAll();
+  }
+
+  if (data.error) {
+    next({ status : 404, error : data.error });
+  }
 
   res.status(200).send(data);
 }

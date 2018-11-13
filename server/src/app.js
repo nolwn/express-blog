@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   const error = {};
 
-  error.error = err.error || "Internal server error.";
+  error.error = err.error || [ "Internal server error." ];
   error.status = err.status || 404;
   error.stack = err.stack || undefined;
 
