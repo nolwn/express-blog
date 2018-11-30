@@ -45,6 +45,7 @@ function getOne(id) {
 function create(data) {
   const result = {};
   const error = [];
+
   const posts = readPosts();
 
   if (!data.title) {
@@ -72,6 +73,7 @@ function create(data) {
 function update(id, data) {
   const result = {};
   const error = [];
+
   const posts = readPosts();
   const index = posts.findIndex(entry => entry.id === id);
 
@@ -102,10 +104,12 @@ function update(id, data) {
 }
 
 function remove(id) {
-  const posts = readPosts();
   const result = {};
   const error = [];
+
+  const posts = readPosts();
   const index = posts.findIndex(entry => entry.id === id);
+
   let data;
 
   if (index < 0) {

@@ -1,0 +1,24 @@
+{
+  "name": "express-blog-public",
+  "version": "1.0.0",
+  "description": "A little blog written in Express",
+  "main": "js/index.js",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "run-all": "^1.0.1",
+    "browserify": "^16.2.3",
+    "watchify": "^3.11.0",
+    "live-server": "^1.2.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "build": "browserify js/index.js -o js/bundle.js",
+    "watch": "watchify js/index.js -o js/bundle.js",
+    "dev-server": "live-server .",
+    "dev": "run-all \"npm run build\" \"npm run watch\" \"npm run dev-server\""
+  },
+  "author": "Nolan Hellyer",
+  "license": "ISC"
+}

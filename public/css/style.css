@@ -1,0 +1,78 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+header {
+  background-image: url('../img/server.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+h1 {
+  font-family: "Roboto-Mono", monospace, sans-serif;
+  font-size: 36px;
+  margin: 40px 0px;
+  background: #000;
+  color: white;
+  padding: 5px 10px;
+  display: inline-block;
+}
+
+nav {
+  box-shadow: #666 0px 0px 10px 0px;
+}
+
+ul.menu li a {
+  color: #FF3316;
+  font-weight: bold;
+  margin: 15px 0px;
+  font-size: 20px
+}
+
+ul.menu li:hover,
+ul.menu li:hover a,
+ul.menu li.selected-nav,
+ul.menu li.selected-nav a {
+  background: #FF3316;
+  color: white;
+}
+
+button[name="new-post"] {
+  margin-bottom: 30px;
+}
+
+button[name] {
+  background: black;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+button[name]:hover {
+  background: #FF3316;
+  cursor: pointer;
+}
+
+.main-logo {
+  height: 150px;
+  margin: 30px 0px;
+}
+
+.element-post:hover .element-button {
+  visibility: visible;
+}
+
+.element-button {
+  visibility: hidden;
+  margin: 0px 20px 0px 0px;
+}
+
+.folding-form {
+  display: none;
+}
+
+#form-area, #messageArea {
+  margin: 30px 0px;
+}
