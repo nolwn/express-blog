@@ -22,7 +22,7 @@ function buildPost(post) {
   const [ editElement, deleteElement ] = createButtons({
     name: "edit",
     id: post.id,
-    eventHandler: editHandler,
+    eventHandler: makeEditable,
     extraClass: "element-button"
   },
   {
@@ -112,59 +112,6 @@ function renderForm(method, action, id, post) {
   formArea.appendChild(form);
 }
 
-function makeEditable(element) {
-  const title = element.querySelector(".title");
-  const content = element.querySelector(".content");
-  const editButton = element.querySelector("#edit");
-  const deleteButton = element.querySelector("#delete");
-
-  const titleInput = document.createElement("input");
-  const contentInput = document.createElement("textarea");
-
-  const titleValue = title.innerText;
-  const contentValue = content.innerText;
-  const postId = editButton.getAttribute("data-id");
-
-  const [ cancelButton, submitButton ] = createButtons({
-    name: "cancel",
-    id: postId,
-    eventHandler: (e) => makeNotEditable(e.target)
-  },
-  {
-    name: "submit",
-    id: postId,
-    eventHandler: submitEditHandler
-  });
-
-  console.log(buildPost)
-
-  setAttributes(titleInput, { name: "title", type: "text" });
-  setAttributes(contentInput, { name: "content", rows: "8", cols: "80" });
-
-  titleInput.value = titleValue;
-  contentInput.value = contentValue;
-
-  clearChildren(element);
-  appendChildren(element,
-    [ titleInput, contentInput, cancelButton, submitButton ]);
-}
-
-function makeNotEditable(element) {
-  console.log(element);
-  const postId = element.getAttribute("data-id");
-  axios.get(server + "/posts/" + postId)
-  .then(res => {
-    const newElement = buildPost(res.data.data);
-    const post = element.parentElement;
-
-    blogContent.insertBefore(newElement, post);
-    post.remove();
-  })
-  .catch(err => {
-    console.log(err);
-  })
-}
-
 
 // Render the success callout
 function successMessage(response) {
@@ -194,10 +141,57 @@ function errorMessage(error) {
 
   alertCallout.innerHTML = "<p>You done goofed.</p>";
 
-  console.log(error);
-
   messageArea.appendChild(alertCallout);
 }
+
+function makeEditable(e) {
+  const element = e.target.parentElement;
+  const title = element.querySelector(".title");
+  const content = element.querySelector(".content");
+  const editButton = element.querySelector("#edit");
+  const deleteButton = element.querySelector("#delete");
+
+  const titleInput = document.createElement("input");
+  const contentInput = document.createElement("textarea");
+
+  const titleValue = title.innerText;
+  const contentValue = content.innerText;
+  const postId = editButton.getAttribute("data-id");
+
+  const [ cancelButton, submitButton ] = createButtons({
+    name: "cancel",
+    id: postId,
+    eventHandler: makeNotEditable
+  },
+  {
+    name: "submit",
+    id: postId,
+    eventHandler: submitEditHandler
+  });
+
+  setAttributes(titleInput, { name: "title", type: "text" });
+  setAttributes(contentInput, { name: "content", rows: "8", cols: "80" });
+
+  titleInput.value = titleValue;
+  contentInput.value = contentValue;
+
+  clearChildren(element);
+  appendChildren(element,
+    [ titleInput, contentInput, cancelButton, submitButton ]);
+  }
+
+  function makeNotEditable(e) {
+    const element = e.target;
+    const postId = element.getAttribute("data-id");
+    axios.get(server + "/posts/" + postId)
+    .then(res => {
+      const newElement = buildPost(res.data.data);
+      const post = element.parentElement;
+
+      blogContent.insertBefore(newElement, post);
+      post.remove();
+    })
+  }
 
 // Fires when the "New Post" button is clicked
 function newPostHandler(e) {
@@ -229,12 +223,6 @@ function postHandler(e) {
   axios.post(server + "/posts", { title, content })
   .then(res => successMessage(res))
   .catch(err => errorMessage(err));
-}
-
-function editHandler(e) {
-  const id = e.target.getAttribute("data-id");
-
-  makeEditable(e.target.parentElement);
 }
 
 function submitEditHandler(e) {
@@ -278,7 +266,6 @@ module.exports = {
   cancelEditHandler,
   deleteHandler,
   submitEditHandler,
-  editHandler,
   postHandler,
   newPostHandler,
   buildPost
