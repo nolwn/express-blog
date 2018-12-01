@@ -41,16 +41,17 @@ button[name="new-post"] {
   margin-bottom: 30px;
 }
 
-button[name] {
+button.button {
   background: black;
   font-weight: bold;
   font-family: "Open Sans", sans-serif;
   color: white;
   padding: 15px;
   border-radius: 5px;
+  margin: 0px 20px 0px 0px;
 }
 
-button[name]:hover {
+button.button:hover {
   background: #FF3316;
   cursor: pointer;
 }
@@ -66,7 +67,7 @@ button[name]:hover {
 
 .element-button {
   visibility: hidden;
-  margin: 0px 20px 0px 0px;
+
 }
 
 .folding-form {

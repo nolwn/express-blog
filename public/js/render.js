@@ -16,8 +16,21 @@ function buildPost(post) {
   const titleElement = document.createElement("h2");
   const contentElement = document.createElement("p");
   const hrElement = document.createElement("hr");
-  const editElement = document.createElement("a");
-  const deleteElement = document.createElement("a");
+  // const editElement = document.createElement("a");
+  // const deleteElement = document.createElement("a");
+
+  const [ editElement, deleteElement ] = createButtons({
+    name: "edit",
+    id: post.id,
+    eventHandler: editHandler,
+    extraClass: "element-button"
+  },
+  {
+    name: "delete",
+    id: post.id,
+    eventHandler: deleteHandler,
+    extraClass: "element-button"
+  })
 
   // Configure the post element
   postElement.classList.add("element-post");
@@ -30,20 +43,6 @@ function buildPost(post) {
   contentElement.innerText = post.content;
   contentElement.classList.add("content");
 
-  // Configure the edit button
-  editElement.innerText = "edit";
-  editElement.id = "edit";
-  editElement.classList.add("element-button");
-  editElement.setAttribute("data-id", post.id);
-  editElement.addEventListener("click", editHandler);
-
-  // Configure the delete button
-  deleteElement.innerText = "delete";
-  deleteElement.id = "delete";
-  deleteElement.classList.add("element-button");
-  deleteElement.setAttribute("data-id", post.id);
-  deleteElement.addEventListener("click", deleteHandler);
-
   // Attach the elements to the post element
   postElement.appendChild(titleElement);
   postElement.appendChild(contentElement);
@@ -54,6 +53,28 @@ function buildPost(post) {
   // Attach post element to the DOM
 
   return postElement;
+}
+/*
+ *  Takes a variable number of objects which contain a (string) name, a (string)
+ *  id, and a (function) eventHandler.
+ *  Generates an array of buttons based on the parameters given.
+ *  Returns array of button elements.
+ */
+function createButtons(...buttonObjects) {
+  return buttonObjects.map(object => {
+    const button = document.createElement("button");
+    if (object.extraClass) {
+      button.classList.add(object.extraClass);
+    }
+
+    button.classList.add("button");
+    button.innerText = object.name.split("-").join(" ");
+    button.id = object.name;
+    button.setAttribute("data-id", object.id)
+    button.addEventListener("click", object.eventHandler);
+
+    return button;
+  });
 }
 
 // Add labels to an array of unlabelled input elements
@@ -87,8 +108,19 @@ function renderForm (method, action, id, post) {
   const idInput = document.createElement("input");
   const titleInput = document.createElement("input");
   const contentInput = document.createElement("textarea");
-  const closeButton = document.createElement("button");
-  const submitButton = document.createElement("button");
+  // const closeButton = document.createElement("button");
+  // const submitButton = document.createElement("button");
+
+  const [ closeButton, submitButton ] = createButtons({
+    name: "close",
+    id: id,
+    eventHandler: closeHandler
+  },
+  {
+    name: "submit",
+    id: id,
+    eventHandler: postHandler
+  })
 
   // Configure the form
   // form.classList.add("folding-form");
@@ -111,18 +143,18 @@ function renderForm (method, action, id, post) {
     contentInput.innerText = post.content;
   }
 
-  // Configure close button
-  closeButton.setAttribute("type", "button");
-  closeButton.setAttribute("name", "close");
-  closeButton.innerText = "X Close";
-  closeButton.addEventListener("click", closeHandler);
-
-  // Configure submit button
-  submitButton.setAttribute("type", "submit");
-  submitButton.setAttribute("name", "submit");
-  submitButton.classList.add("float-right");
-  submitButton.innerText = "✓ Submit";
-  submitButton.addEventListener("click", postHandler);
+  // // Configure close button
+  // closeButton.setAttribute("type", "button");
+  // closeButton.setAttribute("name", "close");
+  // closeButton.innerText = "X Close";
+  // closeButton.addEventListener("click", closeHandler);
+  //
+  // // Configure submit button
+  // submitButton.setAttribute("type", "submit");
+  // submitButton.setAttribute("name", "submit");
+  // submitButton.classList.add("float-right");
+  // submitButton.innerText = "✓ Submit";
+  // submitButton.addEventListener("click", postHandler);
 
   // Add labels to inputs
   const labeledEls = addLabels([titleInput, contentInput]);
