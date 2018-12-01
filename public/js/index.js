@@ -1,8 +1,8 @@
 const axios = require("axios");
 const server = "https://polar-inlet-56421.herokuapp.com";
 
-const { fillBlogContent, newPostHandler } = require("./render");
-
+const { fillBlogContent } = require("./render");
+const { newPostHandler } = require("./build-post");
 function main() {
   const newPost = document.getElementById("new-post");
 
